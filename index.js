@@ -16,11 +16,9 @@ function passDataToDom(data) {
     data.forEach((mem) => {
         users += ` <div class="each-mem">
                                 <div class="each-mem-name">
-                                <p>${mem.firstname}${mem.lastname}</p>
+                                <p class="color">${mem.firstname} ${mem.lastname}</p>
                                 </div>
-                                <div class="each-mem-pic">
-                                    <img src="${mem.img}" alt="${mem.firstname}img" />
-                                </div>
+                                
                             </div>`;
     });
 
@@ -44,14 +42,15 @@ function createObject(data) {
     let num3 = document.getElementById("num3");
     let users = "";
     data.forEach((mem) => {
-        users += `
-         <div class="each-mem">
-                    <div class="each-mem-name"></div>
-                  
-                    <p>${mem.birthmonth}</p>
-                    <p>${mem.bestmovie}</p>
-                </div>
-    `;
+        //     users += `
+        //      <div class="each-mem">
+        //                 <div class="each-mem-name"></div>
+
+        //                 <p>${mem.birthmonth}</p>
+        //                 <p>${mem.bestmovie}</p>
+        //             </div>
+        // `;
+        console.log(mem.bestmovie);
     });
 
     num3.innerHTML = users;
@@ -73,7 +72,7 @@ function numFour() {
            <p>${num}</p>
             <p>${num5}</p>
         `;
-    num4.innerHTML = div;
+    // num4.innerHTML = div;
     console.log(num1, num2, num3, num, num5);
     return num1, num2, num3, num, num5;
 }
@@ -114,14 +113,13 @@ function numNine(principal, time, rate) {
     let simpleInterest = (principal * time * rate) / 100;
     let amount = principal * Math.pow(1 + rate / 100, time);
     let compoundinterest = amount - principal;
-    return compoundinterest;
+    return simpleInterest;
 }
-console.log("$" + numNine(8200, 1.5, 17.5).toFixed(2));
+console.log("$" + numNine(8200, 2.5, 17.5).toFixed(2));
 console.log(10 % 4);
 
 function numEleven(mass, height) {
     let bmiCalc = mass / (height * height);
-    // i dont understand his questions that well sha but i guess its something like this
     return bmiCalc;
 }
 
@@ -131,8 +129,15 @@ let nutjobBmi1 = Math.floor(numEleven(92, 1.95));
 let meritBmi2 = Math.floor(numEleven(78, 1.69));
 let nutjobBmi2 = Math.floor(numEleven(92, 1.95));
 console.log(meritBmi1, nutjobBmi1);
+let MeritHigherBMi = "Merit has a higher BMI mass";
+let NutjobHigherBMi = "Nutjob has a higher BMI mass";
 if (meritBmi1 > nutjobBmi1) {
-    console.log(true);
+    console.log(MeritHigherBMi);
 } else {
-    console.log(false);
+    console.log(NutjobHigherBMi);
+}
+if (meritBmi2 > nutjobBmi2) {
+    console.log(MeritHigherBMi);
+} else {
+    console.log(NutjobHigherBMi);
 }
